@@ -21,6 +21,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		http.authorizeRequests()
 			.antMatchers("/webjars/**","/css/**","/image/**","/js/**").permitAll()
 			.antMatchers("/","/home").permitAll()
+			
+			//=======ACESSOS PRIVADOS ADMIN===================
+			.antMatchers("/u/**").hasAuthority("ADMIN")
+			
+			//=======ACESSOS PRIVADOS MEDICOS==================
+			.antMatchers("/medicos/**").hasAuthority("MEDICO")
 					
 			.anyRequest().authenticated()
 			.and()
