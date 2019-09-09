@@ -22,6 +22,7 @@ public class EspecialiadeService {
 	@Autowired
 	private Datatables datatables;
 	
+	
 	@Transactional(readOnly = false)
 	public void salvar(Especialidade especialidade) {	
 		
@@ -37,5 +38,17 @@ public class EspecialiadeService {
 				: repository.findAllByTitulo(datatables.getSearch(), datatables.getPageable());
 		return datatables.getResponse(page);
 	}
+	
+	@Transactional(readOnly = true)
+	public Especialidade buscarPorId(Long id) {
+		return repository.findById(id).get();
+	}
+	
+	@Transactional(readOnly = false)
+	public void remover(Long id) {
+		repository.deleteById(id);
+	}
+	
+	
 
 }
