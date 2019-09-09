@@ -9,7 +9,7 @@ public class DemoSecurityApplication {
 
 	public static void main(String[] args) {
 		
-		//System.out.println(new BCryptPasswordEncoder().encode(""));
+		//System.out.println(new BCryptPasswordEncoder().encode("12345"));
 		
 		SpringApplication.run(DemoSecurityApplication.class, args);
 	}
